@@ -27,8 +27,6 @@
   },
   "devDependencies": {
     "eslint": "7.31.0",
-    "eslint-config-next": "11.0.1",
-    "prettier": "2.3.2"
-  },
-  "extends": ["next", "prettier"]
+    "eslint-config-next": "11.0.1"
+  }
 }
