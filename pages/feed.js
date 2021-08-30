@@ -13,7 +13,7 @@ const Myfeed = () => {
 		if (auth) {
 			if (!auth.user) router.push('/login')
 		}
-	}, [auth])
+	}, [auth, router])
 
 	return (
 		<>

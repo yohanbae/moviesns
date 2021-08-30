@@ -13,7 +13,7 @@ const Login = () => {
 
 	useEffect(() => {
 		if (auth.user) router.push('/')
-	}, [auth])
+	}, [auth, router])
 
 	const SignupSchema = Yup.object().shape({
 		username: Yup.string()

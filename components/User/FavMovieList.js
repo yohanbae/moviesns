@@ -6,6 +6,7 @@ import {
 	Grid,
 } from '@chakra-ui/react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const FavMovieList = ({ data }) => (
 	<Popover>
@@ -21,9 +22,10 @@ export const FavMovieList = ({ data }) => (
 					alignItems="center"
 					fontSize="10px"
 				>
-					<img
-						w="50px"
-						h="50px"
+					<Image
+						width={50}
+						height={50}
+						alt=""
 						src={`https://image.tmdb.org/t/p/w200/${v.attributes.poster_path}`}
 					/>
 					<Link href={`/movie/${v.attributes.movieId}`}>

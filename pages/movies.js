@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Flex, Grid, Spinner, Button } from '@chakra-ui/react'
 import MovieSearch from '../components/MovieSearch'
 import Head from 'next/head'
+import Image from 'next/image'
 
 const Movies = () => {
 	const fetcher = async (url) => {
@@ -38,8 +39,11 @@ const Movies = () => {
 					page?.map((movie) => (
 						<Link key={movie.id} href={`movie/${movie.id}`}>
 							<a>
-								<img
+								<Image
 									src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+									alt=""
+									width={200}
+									height={300}
 								/>
 							</a>
 						</Link>

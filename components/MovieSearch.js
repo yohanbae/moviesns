@@ -22,7 +22,7 @@ const MovieSearch = () => {
 				onChange={onSearchKey}
 				onKeyDown={onEnter}
 			/>
-			<InputRightElement children={<SearchIcon color="black.500" />} />
+			<InputRightElement children={<SearchIcon color="black.500"></SearchIcon>} />
 		</InputGroup>
 	)
 }

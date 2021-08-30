@@ -5,6 +5,7 @@ import { Spinner, Spacer, Grid, Flex, Button } from '@chakra-ui/react'
 import { Postfetcher } from '../../fetchers/postFetcher'
 import Link from 'next/link'
 import Post from './Post'
+import Image from 'next/image'
 
 const Posts = ({
 	movieId = null,
@@ -69,8 +70,11 @@ const Posts = ({
 						>
 							<Link href={`/movie/${post.attributes.movie_id}`}>
 								<a>
-									<img
+									<Image
 										src={`https://image.tmdb.org/t/p/w200/${post.attributes.poster_path}`}
+										width={200}
+										height={300}
+										alt=""
 									/>
 								</a>
 							</Link>

@@ -4,6 +4,7 @@ import Posts from '../../components/Post/Posts'
 import { Grid, Box } from '@chakra-ui/react'
 import FavMovie from '../../components/FavMovie'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useAuth } from '../../utils/use-auth'
 
 const Movie = ({ id }) => {
@@ -29,8 +30,11 @@ const Movie = ({ id }) => {
 			{data ? (
 				<Grid gridTemplateColumns="1fr 1fr" gap={10}>
 					<Box>
-						<img
+						<Image
+							alt="mv"
 							src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}
+							width={400}
+							height={500}
 						/>
 						{auth?.user ? (
 							<FavMovie
