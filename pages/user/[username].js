@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 const UserPage = () => {
 	const router = useRouter()
 	const username = router.query.username
-	
+
 	return (
 		<>
 			<Head>
@@ -14,8 +14,11 @@ const UserPage = () => {
 				<meta name="description" content="MOVIE SNS" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<UserDisplay username={username} small={false} />
-			<Posts username={username} />
+			{
+				username && <>
+					<UserDisplay username={username} small={false} />
+					<Posts username={username} /></>
+			}
 		</>
 	)
 }
