@@ -6,14 +6,23 @@ import FavMovie from '../../components/FavMovie'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useAuth } from '../../utils/use-auth'
+import { useRouter } from 'next/router'
 
-const Movie = ({ id }) => {
+// const Movie = ({ id }) => {
+const Movie = () => {
 	const auth = useAuth()
+	const router = useRouter()
+	const id = router.query.id
 
 	const fetcher = async (url) => {
-		const res = await axios.get(url)
-		return res.data
+		if(id) {
+			const res = await axios.get(url)
+			return res.data
+		} else {
+			return null
+		}
 	}
+
 	const { data, isValidating } = useSwr(
 		`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_MB_API}`,
 		fetcher,
@@ -55,10 +64,10 @@ const Movie = ({ id }) => {
 	)
 }
 
-export const getServerSideProps = async (context) => {
-	return {
-		props: { id: context.params.id },
-	}
-}
+// export const getServerSideProps = async (context) => {
+// 	return {
+// 		props: { id: context.params.id },
+// 	}
+// }
 
 export default Movie
