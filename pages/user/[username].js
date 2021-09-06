@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Posts from '../../components/Post/Posts'
 import UserDisplay from '../../components/User/UserDisplay'
+import { useRouter } from 'next/router'
 
-const UserPage = ({ username }) => {
+const UserPage = () => {
+	const router = useRouter()
+	const username = router.query.username
+	
 	return (
 		<>
 			<Head>
@@ -18,11 +22,11 @@ const UserPage = ({ username }) => {
 
 export default UserPage
 
-export async function getServerSideProps(context) {
-	const username = context.params.username
-	return {
-		props: {
-			username,
-		},
-	}
-}
+// export async function getServerSideProps(context) {
+// 	const username = context.params.username
+// 	return {
+// 		props: {
+// 			username,
+// 		},
+// 	}
+// }

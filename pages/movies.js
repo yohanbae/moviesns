@@ -19,7 +19,9 @@ const Movies = () => {
 		}&page=${pageIndex + 1}`
 	}
 
-	const { data, size, setSize, isValidating } = useSWRInfinite(getKey, fetcher)
+	const { data, size, setSize, isValidating } = useSWRInfinite(getKey, fetcher, {
+		revalidateOnFocus: false
+	})
 
 	return (
 		<>

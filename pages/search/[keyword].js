@@ -5,11 +5,19 @@ import { Flex, Grid, Box, Spinner, Button } from '@chakra-ui/react'
 import MovieSearch from '../../components/MovieSearch'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
-const Search = ({ keyword }) => {
+const Search = () => {
+	const router = useRouter()
+	const keyword = router.query.keyword
+
 	const fetcher = async (url) => {
-		let movies = await axios.get(url)
-		return movies.data.results
+		if(keyword) {
+			let movies = await axios.get(url)
+			return movies.data.results
+		}else{
+			return null
+		}
 	}
 
 	const getKey = (pageIndex, previousPageData) => {
@@ -68,11 +76,11 @@ const Search = ({ keyword }) => {
 
 export default Search
 
-export async function getServerSideProps(context) {
-	const keyword = context.params.keyword
-	return {
-		props: {
-			keyword,
-		},
-	}
-}
+// export async function getServerSideProps(context) {
+// 	const keyword = context.params.keyword
+// 	return {
+// 		props: {
+// 			keyword,
+// 		},
+// 	}
+// }
